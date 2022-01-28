@@ -1,0 +1,11 @@
+.employee-page {
+  &__header {
+    @include middle-content(70%);
+    margin: 3em auto;
+    @include flex-content(center);
+  }
+
+  &__container {
+    @include middle-content(70%);
+  }
+}

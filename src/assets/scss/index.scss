@@ -1,0 +1,9 @@
+@import '~antd/dist/antd.css';
+
+/**    Common   **/
+@import './default';
+@import './mixins';
+
+/**    Pages    **/
+@import '../../pages/Home/styles.scss';
+@import '../../pages/Employee/styles.scss';

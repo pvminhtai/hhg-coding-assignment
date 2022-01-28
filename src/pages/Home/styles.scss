@@ -1,0 +1,12 @@
+.home-page {
+  &__container {
+    @include middle-content(70%);
+    margin-top: 10em;
+    text-align: center;
+  }
+
+  &__heading {
+    font-size: 4em;
+    margin-bottom: 1em;
+  }
+}
