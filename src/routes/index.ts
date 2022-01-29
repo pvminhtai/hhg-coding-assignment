@@ -1,5 +1,5 @@
 import { IRoute } from '../interfaces';
-import { Employee, Home } from '../pages';
+import { CssMenu, Employee, Home } from '../pages';
 
 const routes: IRoute[] = [
   {
@@ -9,9 +9,14 @@ const routes: IRoute[] = [
     component: Home,
   },
   {
-    name: 'Employees',
+    name: 'Employee',
     path: '/employees',
     component: Employee,
+  },
+  {
+    name: 'CssMenu',
+    path: '/css-menu',
+    component: CssMenu,
   },
 ];
 

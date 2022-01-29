@@ -1,21 +1,17 @@
-import { ArrowLeftIcon, Button, ButtonProps } from 'evergreen-ui';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-function GoBackButton({ children, ...props }: ButtonProps): JSX.Element {
+function GoBackButton(): JSX.Element {
   const history = useHistory();
-
-  const handleClick = () => {
-    history.goBack();
-  };
 
   return (
     <Button
       className="go-back-btn"
-      onClick={handleClick}
-      iconBefore={ArrowLeftIcon}
-      {...props}
+      onClick={() => history.push('/')}
+      icon={<ArrowLeftOutlined />}
     >
-      Go back
+      Back to home page
     </Button>
   );
 }

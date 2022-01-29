@@ -1,11 +1,20 @@
 import { useCallback, useState } from 'react';
 import { DEFAULT_PAGE_LIMIT, DEFAULT_PAGE_SELECTED } from '../constants';
+import { IPagination } from '../interfaces';
+
+interface IUsePagination {
+  pagination: IPagination;
+  changeCurrentPage: (page: number) => void;
+  changePageLimit: (size: number) => void;
+  setPagination: React.Dispatch<React.SetStateAction<IPagination>>;
+  resetPagination: () => void;
+}
 
 export default function usePagination(
   page: number = DEFAULT_PAGE_SELECTED,
   limit: number = DEFAULT_PAGE_LIMIT
-) {
-  const [pagination, setPagination] = useState({ page, limit });
+): IUsePagination {
+  const [pagination, setPagination] = useState<IPagination>({ page, limit });
 
   const changeCurrentPage = useCallback(
     (page: number) => setPagination({ ...pagination, page }),

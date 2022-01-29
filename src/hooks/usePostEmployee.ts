@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { addEmployeeAPI } from '../api/employeeAPI';
 import { NotificationType } from '../constants';
 import { IAddEmployeeData } from '../interfaces';
 import { pushNotification } from '../utils';
 
-export default function usePostEmployee() {
+interface IUsePostEmployee {
+  isLoading: boolean;
+  postEmployee: (body: IAddEmployeeData) => Promise<void>;
+}
+
+export default function usePostEmployee(): IUsePostEmployee {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  async function postEmployee(body: IAddEmployeeData) {
+  const postEmployee = useCallback(async (body: IAddEmployeeData) => {
     setIsLoading(true);
 
     try {
       await addEmployeeAPI(body);
-      setIsLoading(false);
       pushNotification('Add employee successfully!', NotificationType.SUCCESS);
     } catch (error) {
-      setIsLoading(false);
-      pushNotification('Add employee failed!', NotificationType.ERROR);
+      pushNotification('Add employee fail!', NotificationType.ERROR);
     }
-  }
+    setIsLoading(false);
+  }, []);
 
   return {
     isLoading,

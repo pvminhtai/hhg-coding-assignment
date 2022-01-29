@@ -4,17 +4,10 @@
   margin: 0 auto;
 }
 
-@mixin flex-content(
-  $align-items: null,
-  $flex-direction: null,
-  $justify-content: null,
-  $flex-wrap: null
-) {
+@mixin flex-container($align-items: null, $justify-content: null) {
   display: flex;
   align-items: $align-items;
-  flex-direction: $flex-direction;
   justify-content: $justify-content;
-  flex-wrap: $flex-wrap;
 }
 
 @mixin set-font(
